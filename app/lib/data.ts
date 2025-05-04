@@ -1,12 +1,5 @@
 import postgres from 'postgres';
-import {
-    CustomerField,
-    CustomersTableType,
-    InvoiceForm,
-    InvoicesTable,
-    LatestInvoiceRaw,
-    Revenue,
-} from './definitions';
+import {CustomerField, CustomersTableType, InvoiceForm, InvoicesTable, LatestInvoiceRaw, Revenue,} from './definitions';
 import {formatCurrency} from './utils';
 
 const sql = postgres(process.env.POSTGRES_URL!, {
@@ -136,8 +129,7 @@ export async function fetchInvoicesPages(query: string) {
                                   OR invoices.status ILIKE ${`%${query}%`}
         `;
 
-        const totalPages = Math.ceil(Number(data[0].count) / ITEMS_PER_PAGE);
-        return totalPages;
+        return Math.ceil(Number(data[0].count) / ITEMS_PER_PAGE);
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch total number of invoices.');
