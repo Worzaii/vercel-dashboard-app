@@ -108,7 +108,7 @@ async function seedRevenue() {
 }
 
 export async function seed() {
-  const result = await sql.begin(async (sql) => [
+  const result = await sql.begin(async () => [
     await seedUsers(),
     await seedCustomers(),
     await seedInvoices(),
