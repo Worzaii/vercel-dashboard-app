@@ -5,7 +5,7 @@ import {lusitana} from '@/app/ui/fonts';
 import {fetchLatestInvoices} from "@/app/lib/data";
 
 export default async function LatestInvoices() {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     const latestInvoices = await fetchLatestInvoices();
     return (
         <div className="flex w-full flex-col md:col-span-4">
